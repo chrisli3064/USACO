@@ -7,16 +7,22 @@ public class Castle{
 	  StringTokenizer st = new StringTokenizer(br.readLine());
 	  int columns = Integer.valueOf(st.nextToken());
 	  int rows = Integer.valueOf(st.nextToken());
-	  int[][] castle = new int[rows][columns];
+	  //int[][] castle = new int[rows][columns];
+	  List<List<node>> castle = new ArrayList<List<node>>();
+	  
+	  
 	  final int w = 1;
 	  final int n = 2;
 	  final int e = 4;
 	  final int s = 8;
 	  for(int i=0; i<rows; i++){
+		  List<node> room = new ArrayList<node>();
+		  
 		  StringTokenizer st1 = new StringTokenizer(br.readLine());
 		  for(int j=0; j<columns; j++){
 			  castle[i][j]=Integer.valueOf(st.nextToken());
 		  }
+		  list.add(room);
 	  }
   }
 }
