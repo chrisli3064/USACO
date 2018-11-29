@@ -11,9 +11,7 @@ class frac1{
    public static void main(String[] args)throws IOException{
        BufferedReader br = new BufferedReader(new FileReader("frac1.in"));
        PrintWriter pw = new PrintWriter(new FileWriter("frac1.out"));
-       //Scanner s = new Scanner(System.in);
        int n = Integer.valueOf(br.readLine());
-       //int n = s.nextInt();
        HashMap<Double, String> hm = new HashMap<Double,String>();
        HashSet<Double> hs = new HashSet<Double>();
        System.out.print("0/1 ");
@@ -34,10 +32,8 @@ class frac1{
        ArrayList<Double> al = new ArrayList<Double>(hs);
 
        for(int i=0; i<al.size(); i++){
-           //System.out.print(hm.get(al.get(i))+ " ");
            pw.write(hm.get(al.get(i))+ " ");
        }
-       //if(n>=0)System.out.println("1/1");
        pw.write("1/1");
        pw.close();
    }
