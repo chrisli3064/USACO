@@ -1,34 +1,47 @@
+
+/*
+ID: christo57
+LANG: JAVA
+PROB: frac1
+*/
 import java.util.*;
 import java.io.*;
-/**
-*PROB: frac1
-*NAME: christo57
-**/
 class frac1{
 
    public static void main(String[] args)throws IOException{
        BufferedReader br = new BufferedReader(new FileReader("frac1.in"));
        PrintWriter pw = new PrintWriter(new FileWriter("frac1.out"));
-       
+       //Scanner s = new Scanner(System.in);
        int n = Integer.valueOf(br.readLine());
-       
+       //int n = s.nextInt();
        HashMap<Double, String> hm = new HashMap<Double,String>();
        HashSet<Double> hs = new HashSet<Double>();
-       System.out.println("0/1");
-       for(int i=1; i<n; i++){
+       System.out.print("0/1 ");
+
+       for(int i=1; i<=n; i++){
            for(int j=1; j<i; j++){
-               hm.put(i/Double.valueOf(j), i+"/"+j);
-               hs.add(i/Double.valueOf(j));
+               
+               if(hm.containsKey(j/Double.valueOf(i))){
+                   String[] parts = hm.get(j/Double.valueOf(i)).split("/");
+                   int previousJ = Integer.valueOf(parts[0]);
+                   int previousI = Integer.valueOf(parts[1]);
+                   hm.put(j/Double.valueOf(i), Math.min(previousJ, j)+"/"+Math.min(previousI, i));
+                }
+                else hm.put(j/Double.valueOf(i),j+"/"+i);
+               hs.add(j/Double.valueOf(i));
            }
        }
-       ArrayList<Double> al = new ArrayList<Double>();
-       Collections.sort(al); 
+       ArrayList<Double> al = new ArrayList<Double>(hs);
+
        for(int i=0; i<al.size(); i++){
-           System.out.print(al.get(i)+ " ");
-           pw.write(hm.get(al.get(i)));
+           //System.out.print(hm.get(al.get(i))+ " ");
+           pw.write(hm.get(al.get(i))+ " ");
        }
+       //if(n>=0)System.out.println("1/1");
+       pw.write("1/1");
        pw.close();
    }
+
 
 
 }
