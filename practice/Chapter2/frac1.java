@@ -1,3 +1,4 @@
+package Chapter2;
 
 /*
 ID: christo57
@@ -9,12 +10,11 @@ import java.io.*;
 class frac1{
 
    public static void main(String[] args)throws IOException{
-       BufferedReader br = new BufferedReader(new FileReader("frac1.in"));
-       PrintWriter pw = new PrintWriter(new FileWriter("frac1.out"));
+       BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\chris\\Documents\\GitHub\\USACO\\practice\\Chapter2\\frac1.in"));
+       PrintWriter pw = new PrintWriter(new FileWriter("C:\\Users\\chris\\Documents\\GitHub\\USACO\\practice\\Chapter2\\frac1.out"));
        int n = Integer.valueOf(br.readLine());
        HashMap<Double, String> hm = new HashMap<Double,String>();
        HashSet<Double> hs = new HashSet<Double>();
-       System.out.print("0/1 ");
 
        for(int i=1; i<=n; i++){
            for(int j=1; j<i; j++){
@@ -30,7 +30,7 @@ class frac1{
            }
        }
        ArrayList<Double> al = new ArrayList<Double>(hs);
-
+       Collections.sort(al);
        for(int i=0; i<al.size(); i++){
            pw.write(hm.get(al.get(i))+ " ");
        }
